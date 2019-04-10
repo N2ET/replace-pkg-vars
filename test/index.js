@@ -39,13 +39,24 @@ const source = 'root.js src/index.js src/root.js src/test/t1.js src/test/t2.js c
         files: source,
         pattern: '!src/test/** root.js !common/vue/index.js',
         result: 'root.js,src/index.js,src/root.js,src/test/t1.js,src/test/t2.js,common/index.js,common/vue/index.js'
-    }  
+    },
+    {
+        files: source,
+        pattern: 'src/**',
+        result: 'src/index.js,src/root.js,src/test/t1.js,src/test/t2.js'
+    },
+    {
+        files: source,
+        pattern: 'abc/**',
+        result: 'package.json',
+        defaultFile: 'package.json'
+    }
 
 ].forEach(item => {
     console.log('------------------------------------------------');
     console.log(`source: ${item.files}`);
     console.log(`filter: ${item.pattern}`);
-    let ret = lib.runWithTemplate(item, '{{filter pattern}}', false);
+    let ret = lib.runWithTemplate(item, '{{filter pattern}}', item.defaultFile);
     
     if (item.result !== ret) {
         console.error(`[error>>>] result: ${ret}`);

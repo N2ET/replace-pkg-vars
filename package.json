@@ -2,9 +2,9 @@
   "name": "replace-pkg-vars",
   "version": "1.0.0",
   "description": "replace pkg file vars",
-  "main": "./lib/index.js",
+  "main": "index.js",
   "bin": {
-    "replace-pkg-vars": "index.js"
+    "replace-pkg-vars": "./bin/index.js"
   },
   "directories": {
     "lib": "lib",
