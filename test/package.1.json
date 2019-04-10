@@ -1,0 +1,3 @@
+{
+    "{{files}}": "{{filter 'src/test/** common/**'}}"
+}

@@ -1,0 +1,32 @@
+{
+  "name": "replace-pkg-vars",
+  "version": "1.0.0",
+  "description": "replace pkg file vars",
+  "main": "./lib/index.js",
+  "bin": {
+    "replace-pkg-vars": "index.js"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "test"
+  },
+  "dependencies": {
+    "commander": "^2.20.0",
+    "handlebars": "^4.1.1",
+    "minimatch": "^3.0.4"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "cd test && node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/N2ET/replace-pkg-vars.git"
+  },
+  "author": "N2ET",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/N2ET/replace-pkg-vars/issues"
+  },
+  "homepage": "https://github.com/N2ET/replace-pkg-vars#readme"
+}
