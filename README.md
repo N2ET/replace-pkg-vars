@@ -16,7 +16,7 @@ replace-pkg-vars --debug --default-file -p pkg-file-path -f files
 
 `{{files}}`对应命令中的`files`。`pattern`为模板文件中，filter的值，如果是字符串，需要使用单引号包裹。
 
-当配置`--default-file`时，如果过滤的文件为空，会将`default-file`设置为`{{filter pattern}}`的值，默认为`package.json`。如果文件不存在，则会创建。
+当配置`--default-file`时，如果过滤的文件为空，会将`default-file`设置为`{{filter pattern}}`的值，默认为`__replace_pkg_vars_default_file__`。如果文件不存在，则会创建。
 
 ### 全局安装后的使用示例
 
@@ -49,7 +49,7 @@ echo $?
 "scripts": {
     "lint-all": "eslint ./src", // 扫描src目录
     "lint-updated": "eslint {{files}}",  // 扫描所有修改的文件
-    "lint-updated-in-src": "eslint {{filter './src'}}"  // 扫描src目录下修改的文件
+    "lint-updated-in-src": "eslint {{filter 'src/**'}}"  // 扫描src目录下修改的文件
 }
 ```
 
@@ -58,6 +58,10 @@ echo $?
 src=$1 # 文件列表由扫描环境提供
 replace-pkg-vars -f "${src}"
 npm run lint-updated-in-src
+
+# 如果 {{filter 'src/**'}} 的结果为空，则会导致eslint命令出错，
+# 此时可配置 --default-file 生成一个空文件 __replace_pkg_vars_default_file__ 作为eslint命令的目标文件，避免eslint运行出错
+replace-pkg-vars --default-file -f "${src}"
 ```
 
 ### 注意事项

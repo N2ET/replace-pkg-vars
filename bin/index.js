@@ -5,7 +5,7 @@ const lib = require('../lib/index');
 const fs = require('fs');
  
 program
-  .version('0.0.1', '-v, --version')
+  .version('1.1.0', '-v, --version')
   .option('-p, --pkgfile [pkgfile]', 'package.json file path')
   .option('-f, --files <files>', 'updated file list')
   .option('-d, --debug', 'debug log')

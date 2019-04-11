@@ -1,6 +1,6 @@
 {
   "name": "replace-pkg-vars",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "replace pkg file vars",
   "main": "index.js",
   "bin": {
